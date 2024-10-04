@@ -1,0 +1,238 @@
+/* Version 2: Sectioned Layout with Border Lines and Customizations */
+
+/* Reset default margins and paddings */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif; /* Old typewriter font */
+    background-color: #b0b0b0; /* Medium grey screen background */
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px 30px;
+    background-color: #e0e0e0; /* Light grey container (frame) */
+    border: 2px solid #000000; /* Stronger border */
+    border-radius: 8px;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #333333; /* Darker grey text */
+    margin-bottom: 20px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-bottom: 30px;
+    border: 2px solid #000000; /* Stronger border for the content section */
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.input-graph-container {
+    display: flex;
+    align-items: stretch;
+}
+
+.form-container {
+    flex: 0 0 20%;
+    max-width: 20%;
+    padding: 20px;
+    background-color: #f5f5f5; /* Very light grey form background */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    font-size: 12px;
+}
+
+.form-container-left {
+    border-right: 2px solid #000000; /* Stronger border between left form and graph */
+}
+
+.form-container-right {
+    border-left: 2px solid #000000; /* Stronger border between graph and right form */
+}
+
+.graph-container {
+    flex: 1;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    margin-bottom: 5px;
+    color: #333333; /* Dark grey for labels */
+    font-weight: bold;
+    display: block;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #bbbbbb;
+    border-radius: 4px;
+    background-color: #ffffff; /* White background for inputs */
+    color: #333333; /* Dark grey text */
+    font-size: 14px;
+}
+
+input[type="number"]:focus {
+    outline: none;
+    border-color: #42a5f5; /* Light blue border on focus */
+    background-color: #e3f2fd; /* Light blue background on focus */
+}
+
+button {
+    width: 200px;
+    padding: 12px;
+    background-color: #42a5f5; /* Light blue button */
+    color: #ffffff; /* White text */
+    border: 2px solid #535353;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 20px auto;
+    display: block;
+}
+
+button:hover {
+    background-color: #1e88e5; /* Darker blue on hover */
+}
+
+.results-container {
+    width: 80%;
+    margin: 0 auto;
+    background-color:  #e0e0e0; /* Light grey container (frame) */
+    padding: 20px;
+    border: 1px solid #000000;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.results {
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.centered-text {
+    text-align: center;           /* Center the text */
+    font-family: 'Arial', sans-serif;
+
+    font-weight: lighter;            /* Make the text bold */
+    color: #00aa39;                 /* Set the font colour to green */
+    margin-bottom: 20px; 
+    margin-top: 20px;
+    font-size: 18px;
+    
+}
+
+canvas {
+    margin-top: 20px;
+    max-width: 100%;
+}
+
+.table-responsive {
+    overflow-x: auto;
+    margin-top: 20px;
+    border: 1px solid #000000; /* Stronger border around the table */
+    border-radius: 4px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table thead {
+    background-color: #42a5f5; /* Light blue header */
+    color: #ffffff; /* White text */
+    font-size: small;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #000000;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f8f9fa; /* Very light grey alternating rows */
+}
+
+table tbody tr:hover {
+    background-color: #e9ecef; /* Light grey highlight on hover */
+}
+
+@media screen and (max-width: 768px) {
+    .input-graph-container {
+        flex-direction: column;
+    }
+
+    .form-container, .graph-container {
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    .form-container-left {
+        border-right: none;
+        border-bottom: 2px solid #000000;
+        margin-bottom: 20px;
+    }
+
+    .form-container-right {
+        border-left: none;
+        border-top: 2px solid #000000;
+        margin-top: 20px;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    /* Add the results-container to the media query */
+    .results-container {
+        width: 100%; /* Full width on smaller screens */
+        padding: 15px; /* Adjust padding */
+        margin: 0; /* Remove margin to fit the screen */
+        box-shadow: none; /* Remove shadow for a flatter design */
+        border: none; /* Remove border on smaller screens */
+    }
+
+    .results {
+        padding-bottom: 15px; /* Adjust spacing for smaller screens */
+        margin-bottom: 15px; /* Adjust margin */
+    }
+
+    .graph-container {
+        padding-top: 15px; /* Adjust spacing for smaller screens */
+    }
+
+    .graph {
+        height: 300px; /* Reduce graph height for smaller screens */
+    }
+}
+
+/* Hide the spin buttons for the number input */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield; /* Firefox */
+}
